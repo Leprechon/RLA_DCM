@@ -41,31 +41,39 @@
     </nav>
   </header>
 <!-- Hero Section -->
- 
+
 <section id="home" class="hero">
-    <div class="slideshow">
-      <img src="images/ALogo.png" class="slide active">
-      <img src="images/Slider_2.jpg" class="slide">
-      <img src="images/gallery_01.jpg" class="slide">
-      <img src="images/gallery_02.jpg" class="slide">
-      <img src="images/gallery_04.jpg" class="slide">
+  <!-- Slideshow Container -->
+  <div class="slideshow-container">
+    <div class="slides active" style="background-image: url('images/slide1.jpg');"></div>
+    <div class="slides" style="background-image: url('images/slide2.jpg');"></div>
+    <div class="slides" style="background-image: url('images/slide3.jpg');"></div>
+    <div class="slides" style="background-image: url('images/slide4.jpg');"></div>
+    <div class="slides" style="background-image: url('images/slide5.jpg');"></div>
+
+    <!-- Prev/Next Controls -->
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+
+    <!-- Dots -->
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
+  </div>
 
-    <!-- Overlay for readability -->
-    <div class="overlay"></div>
-
-    <div class="hero-content text-center">
-      <h1 class="animate-text">Quality Dental Care You Can Trust</h1>
-      <p class="animate-text">Gentle, professional, and family-friendly dental services.</p>
-      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">
-        Book an Appointment
-      </button>
-    </div>
-
-    <!-- Navigation arrows -->
-    <button class="nav-btn prev">&#10094;</button>
-    <button class="nav-btn next">&#10095;</button>
-  </section>
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <h1>Quality Dental Care You Can Trust</h1>
+    <p>We provide professional, pain-free dental services for the whole family. Book your appointment online today.</p>
+    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">
+      Book an Appointment
+    </button>
+  </div>
+</section>
 
 <!-- About Section -->
 <section id="about" class="section bg-light">

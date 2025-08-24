@@ -41,47 +41,57 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 // Hero Carousel Autoplay with interval
 
-let slides = document.querySelectorAll(".slide");
-let texts = document.querySelectorAll(".animate-text");
-let currentIndex = 0;
-let slideInterval = setInterval(nextSlide, 5000);
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slides");
+const dots = document.querySelectorAll(".dot");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
 
-function showSlide(index) {
+function showSlide(n) {
   slides.forEach((slide, i) => {
     slide.classList.remove("active");
-    if (i === index) slide.classList.add("active");
+    dots[i].classList.remove("active");
+    if (i === n) {
+      slide.classList.add("active");
+      dots[i].classList.add("active");
+    }
   });
-
-  texts.forEach(text => {
-    text.classList.remove("show");
-    void text.offsetWidth;
-    text.classList.add("show");
-  });
+  slideIndex = n;
 }
 
 function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
 }
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  showSlide(currentIndex);
+function prevSlideFunc() {
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
 }
 
-document.querySelector(".next").addEventListener("click", () => {
+// Auto play every 6 seconds
+let autoSlide = setInterval(nextSlide, 6000);
+
+// Controls
+next.addEventListener("click", () => {
   nextSlide();
   resetAutoSlide();
 });
 
-document.querySelector(".prev").addEventListener("click", () => {
-  prevSlide();
+prev.addEventListener("click", () => {
+  prevSlideFunc();
   resetAutoSlide();
 });
 
-function resetAutoSlide() {
-  clearInterval(slideInterval);
-  slideInterval = setInterval(nextSlide, 5000);
-}
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    showSlide(i);
+    resetAutoSlide();
+  });
+});
 
-window.onload = () => showSlide(currentIndex);
+// Reset autoplay when manually clicked
+function resetAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = setInterval(nextSlide, 6000);
+}
