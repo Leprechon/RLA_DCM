@@ -41,7 +41,7 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 // Hero Carousel Autoplay with interval
 
-let slideIndex = 0;
+let slideIndex = 7;
 showSlides();
 
 function showSlides() {
