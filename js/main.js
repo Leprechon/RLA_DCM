@@ -40,32 +40,52 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 
 // Hero Carousel Autoplay with interval
-const carousel = document.querySelector('#heroCarousel');
-const heroText = document.querySelector('.hero-text'); // <-- only animate text
+document.addEventListener('DOMContentLoaded', () => {
+  const carouselEl = document.getElementById('heroCarousel');
+  const heroTextBox = document.querySelector('.hero-text');
+  const heroTitle = heroTextBox.querySelector('h1');
+  const heroSubtitle = heroTextBox.querySelector('p');
 
-carousel.addEventListener('slide.bs.carousel', () => {
-  heroText.classList.remove('fade-in');
-});
+  // Bootstrap carousel instance with relaxed timing + smooth fade
+  const slider = new bootstrap.Carousel(carouselEl, {
+    interval: 6000,   // slower autoplay (ms)
+    ride: 'carousel',
+    pause: 'hover',
+    touch: true,
+    wrap: true
+  });
 
-carousel.addEventListener('slid.bs.carousel', () => {
-  heroText.classList.add('fade-in');
-});
+  // Update overlay text from data attributes on each slide
+  const applyTexts = (item) => {
+    const t = item.getAttribute('data-title') || '';
+    const s = item.getAttribute('data-subtitle') || '';
+    heroTitle.textContent = t;
+    heroSubtitle.textContent = s;
+  };
 
-// Add CSS fade animation dynamically (optional)
-const style = document.createElement('style');
-style.innerHTML = `
-  .fade-in {
-    opacity: 0;
-    animation: fadeInUp 1.2s forwards;
+  // Restart the fade animation for text only
+  const playFade = () => {
+    heroTextBox.classList.remove('fade-in');
+    // reflow to restart animation
+    void heroTextBox.offsetWidth;
+    heroTextBox.classList.add('fade-in');
+  };
+
+  // Init text from the first active slide
+  const firstActive = carouselEl.querySelector('.carousel-item.active') || carouselEl.querySelector('.carousel-item');
+  if (firstActive) {
+    applyTexts(firstActive);
+    playFade();
   }
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translate(-50%, -40%); }
-    100% { opacity: 1; transform: translate(-50%, -50%); }
-  }
-`;
-document.head.appendChild(style);
 
-// Run once on page load
-window.addEventListener('DOMContentLoaded', () => {
-  heroText.classList.add('fade-in');
+  // When the slide is about to move, set next text
+  carouselEl.addEventListener('slide.bs.carousel', (e) => {
+    const nextItem = e.relatedTarget; // the next .carousel-item
+    applyTexts(nextItem);
+  });
+
+  // When the slide transition finishes, play fade animation
+  carouselEl.addEventListener('slid.bs.carousel', () => {
+    playFade();
+  });
 });

@@ -6,6 +6,7 @@
   <title>R.L. Anino Dental Clinic</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <!-- Custom CSS -->
@@ -44,33 +45,63 @@
 <!-- Hero Section -->
 
 <section id="home" class="hero">
-  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('images/ALogo.png');"></div>
-      <div class="carousel-item" style="background-image: url('images/gallery_01.jpg');"></div>
-      <div class="carousel-item" style="background-image: url('images/gallery_02.jpg');"></div>
-      <div class="carousel-item" style="background-image: url('images/gallery_04.jpg');"></div>
-      <div class="carousel-item" style="background-image: url('images/Slider_2.jpg');"></div>
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active"
+           data-title="Quality Dental Care You Can Trust"
+           data-subtitle="Professional, pain-free dental services for the whole family.">
+        <img src="images/ALogo.png" class="d-block w-100" alt="Clinic interior">
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item"
+           data-title="Gentle, Friendly & Professional"
+           data-subtitle="Your comfort and confidence come first.">
+        <img src="images/gallery_01.jpg" class="d-block w-100" alt="Smiling patient">
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item"
+           data-title="Modern Equipment"
+           data-subtitle="Digital X-rays and precise diagnostics for better care.">
+        <img src="images/gallery_02.jpg" class="d-block w-100" alt="Modern dental equipment">
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="carousel-item"
+           data-title="Family Dentistry"
+           data-subtitle="From kids to seniors, we’ve got you covered.">
+        <img src="images/gallery_04.jpg" class="d-block w-100" alt="Family at clinic">
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="carousel-item"
+           data-title="Book Online Anytime"
+           data-subtitle="Fast, convenient scheduling that fits your day.">
+        <img src="images/Slider_2.jpg" class="d-block w-100" alt="Online booking">
+      </div>
     </div>
 
-    <!-- Prev/Next controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
+    <!-- Prev / Next controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </button>
 
-    <!-- Overlay content -->
-    <div class="hero-content text-center">
-      <!-- Animated text (changes each slide if you want different wording) -->
-      <div class="hero-text animate">
+    <!-- Overlay gradient (via CSS ::after) + Content -->
+    <div class="hero-content">
+      <div class="hero-text">
         <h1>Quality Dental Care You Can Trust</h1>
         <p>Professional, pain-free dental services for the whole family.</p>
       </div>
 
-      <!-- Stable button (always visible, no fade) -->
-      <button type="button" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#bookingModal">
+      <!-- Button stays stable (does not fade) -->
+      <button type="button" class="btn btn-primary btn-lg hero-cta"
+              data-bs-toggle="modal" data-bs-target="#bookingModal">
         Book an Appointment
       </button>
     </div>
