@@ -44,35 +44,31 @@
 <!-- Hero Section -->
 
 <section id="home" class="hero">
-  <!-- Slideshow Container -->
-  <div class="slideshow-container">
-    <div class="slides active" style="background-image: url('images/ALogo.png');"></div>
-    <div class="slides" style="background-image: url('images/gallery_04.jpg');"></div>
-    <div class="slides" style="background-image: url('images/gallery_01.jpg');"></div>
-    <div class="slides" style="background-image: url('images/gallery_02.jpg');"></div>
-    <div class="slides" style="background-image: url('images/Slider_2.jpg');"></div>
-
-    <!-- Prev/Next Controls -->
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-
-    <!-- Dots -->
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image: url('images/ALogo.png');"></div>
+      <div class="carousel-item" style="background-image: url('images/gallery_01.jpg');"></div>
+      <div class="carousel-item" style="background-image: url('images/gallery_02.jpg');"></div>
+      <div class="carousel-item" style="background-image: url('images/gallery_04.jpg');"></div>
+      <div class="carousel-item" style="background-image: url('images/Slider_2.jpg');"></div>
     </div>
-  </div>
 
-  <!-- Hero Content -->
-  <div class="hero-content">
-    <h1>Quality Dental Care You Can Trust</h1>
-    <p>We provide professional, pain-free dental services for the whole family. Book your appointment online today.</p>
-    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">
-      Book an Appointment
+    <!-- Prev/Next controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
     </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+    <!-- Content overlay -->
+    <div class="hero-content text-center">
+      <h1>Quality Dental Care You Can Trust</h1>
+      <p>Professional, pain-free dental services for the whole family.</p>
+      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">
+        Book an Appointment
+      </button>
+    </div>
   </div>
 </section>
 
