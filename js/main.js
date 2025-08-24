@@ -40,19 +40,18 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 
 // Hero Carousel Autoplay with interval
-
 const carousel = document.querySelector('#heroCarousel');
-const heroContent = document.querySelector('.hero-content');
+const heroText = document.querySelector('.hero-text'); // <-- only animate text
 
 carousel.addEventListener('slide.bs.carousel', () => {
-  heroContent.classList.remove('fade-in');
+  heroText.classList.remove('fade-in');
 });
 
 carousel.addEventListener('slid.bs.carousel', () => {
-  heroContent.classList.add('fade-in');
+  heroText.classList.add('fade-in');
 });
 
-// Add CSS fade animation dynamically
+// Add CSS fade animation dynamically (optional)
 const style = document.createElement('style');
 style.innerHTML = `
   .fade-in {
@@ -65,3 +64,8 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+// Run once on page load
+window.addEventListener('DOMContentLoaded', () => {
+  heroText.classList.add('fade-in');
+});

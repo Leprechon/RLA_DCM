@@ -45,59 +45,46 @@ body {
 
 .hero {
   position: relative;
-  width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
 }
 
-/* Carousel background images */
 .carousel-item {
   height: 100vh;
-  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* Overlay content */
 .hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-  max-width: 800px;
-  padding: 20px;
+  z-index: 10;
+  color: white;
+  max-width: 80%;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
+/* Text animation */
+.hero-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-in-out;
 }
 
-.hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
+.hero-text.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.hero-content .btn {
-  padding: 12px 28px;
-  font-size: 1.2rem;
-  border-radius: 10px;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .carousel-item {
-    height: 70vh;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
-  }
+/* Optional dark overlay */
+#heroCarousel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 5;
 }
 
 /* =========================================
