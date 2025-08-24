@@ -41,57 +41,27 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 // Hero Carousel Autoplay with interval
 
-let slideIndex = 0;
-const slides = document.querySelectorAll(".slides");
-const dots = document.querySelectorAll(".dot");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
+const carousel = document.querySelector('#heroCarousel');
+const heroContent = document.querySelector('.hero-content');
 
-function showSlide(n) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-    dots[i].classList.remove("active");
-    if (i === n) {
-      slide.classList.add("active");
-      dots[i].classList.add("active");
-    }
-  });
-  slideIndex = n;
-}
-
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
-
-function prevSlideFunc() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-
-// Auto play every 6 seconds
-let autoSlide = setInterval(nextSlide, 6000);
-
-// Controls
-next.addEventListener("click", () => {
-  nextSlide();
-  resetAutoSlide();
+carousel.addEventListener('slide.bs.carousel', () => {
+  heroContent.classList.remove('fade-in');
 });
 
-prev.addEventListener("click", () => {
-  prevSlideFunc();
-  resetAutoSlide();
+carousel.addEventListener('slid.bs.carousel', () => {
+  heroContent.classList.add('fade-in');
 });
 
-dots.forEach((dot, i) => {
-  dot.addEventListener("click", () => {
-    showSlide(i);
-    resetAutoSlide();
-  });
-});
-
-// Reset autoplay when manually clicked
-function resetAutoSlide() {
-  clearInterval(autoSlide);
-  autoSlide = setInterval(nextSlide, 6000);
-}
+// Add CSS fade animation dynamically
+const style = document.createElement('style');
+style.innerHTML = `
+  .fade-in {
+    opacity: 0;
+    animation: fadeInUp 1.2s forwards;
+  }
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translate(-50%, -40%); }
+    100% { opacity: 1; transform: translate(-50%, -50%); }
+  }
+`;
+document.head.appendChild(style);
