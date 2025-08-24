@@ -41,21 +41,27 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 // Hero Carousel Autoplay with interval
 
-let slideIndex = 7;
-showSlides();
+const carousel = document.querySelector('#heroCarousel');
+const heroContent = document.querySelector('.hero-content');
 
-function showSlides() {
-  let slides = document.getElementsByClassName("slide");
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+carousel.addEventListener('slide.bs.carousel', () => {
+  heroContent.classList.remove('fade-in');
+});
+
+carousel.addEventListener('slid.bs.carousel', () => {
+  heroContent.classList.add('fade-in');
+});
+
+// Add CSS fade animation dynamically
+const style = document.createElement('style');
+style.innerHTML = `
+  .fade-in {
+    opacity: 0;
+    animation: fadeInUp 1.2s forwards;
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  slides[slideIndex-1].style.display = "block";  
-  setTimeout(showSlides, 5000); // change slide every 5 seconds
-}
-
-function plusSlides(n) {
-  slideIndex += n - 1; 
-  showSlides();
-}
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translate(-50%, -40%); }
+    100% { opacity: 1; transform: translate(-50%, -50%); }
+  }
+`;
+document.head.appendChild(style);
