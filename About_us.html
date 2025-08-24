@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - R.L. Anino Dental Clinic</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <style>
+
+    /* Make footer stick to bottom */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+    }
+    footer {
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="main-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="Main.html">
+          <img src="images/ALogo.png" alt="Dental Clinic Logo" width="40" height="40" class="me-2">
+          <span>R.L. Anino Dental Clinic</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+           <li class="nav-item"><a class="nav-link" href="Main.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="About_us.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+         <li class="nav-item">
+         <a class="nav-link" href="Main.html#Appointment.html">Online Appointment</a>
+         </li>
+        <li class="nav-item"><a class="nav-link" href="Careers.html">Careers</a></li>
+        <li class="nav-item"><a class="nav-link" href="Contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <main>
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="mb-4 text-center fw-bold">About Us</h2>
+        <p class="lead text-center mb-5">
+          Welcome to <strong>R.L. Anino Dental Clinic</strong>, where your smile is our priority.
+        </p>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <p>
+              Our clinic has been serving the community with high-quality dental care for years.
+              We specialize in preventive, restorative, and cosmetic dentistry. Our team of skilled
+              professionals is dedicated to making every visit comfortable and stress-free.
+            </p>
+            <p>
+              At R.L. Anino Dental Clinic, we believe in combining modern technology with compassionate
+              care to help you achieve optimal oral health. Whether it’s a routine checkup or a complex
+              procedure, we are here to provide the best care possible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 R.L. Anino Dental Clinic. All rights reserved.</p>
+  </footer>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.hash === "#appointment") {
+      var bookingModal = new bootstrap.Modal(document.getElementById("bookingModal"));
+      bookingModal.show();
+    }
+  });
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
