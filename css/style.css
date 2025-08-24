@@ -42,60 +42,119 @@ body {
 /* =========================================
    4. Hero / Banner Section
    ========================================= */
-.hero {
+   
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Slideshow Container */
+.slideshow-container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh; /* full screen */
   overflow: hidden;
 }
 
-/* Carousel background images */
-.carousel-item {
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Slides */
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-/* Overlay content */
-.hero-content {
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes it fit for both PC and mobile */
+}
+
+/* Slide Content */
+.slide-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
   text-align: center;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-  max-width: 800px;
-  padding: 20px;
+  color: white;
+  max-width: 80%;
+  animation: fadeInUp 1s ease;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
+.slide-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-}
-
-.hero-content .btn {
-  padding: 12px 28px;
+.slide-content p {
   font-size: 1.2rem;
-  border-radius: 10px;
+  margin-bottom: 1.5rem;
 }
 
-/* Mobile adjustments */
+.btn {
+  padding: 12px 24px;
+  background: #007bff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+/* Animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4 }
+  to { opacity: 1 }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Navigation Buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .carousel-item {
-    height: 70vh;
+  .slide-content h1 {
+    font-size: 1.8rem;
   }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .hero-content p {
+  .slide-content p {
     font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.9rem;
   }
 }
 

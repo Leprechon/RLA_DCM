@@ -43,32 +43,73 @@
 
 <!-- Hero Section -->
 
-  <section id="home" class="hero">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" style="background-image: url('images/ALogo.png');"></div>
-        <div class="carousel-item" style="background-image: url('images/gallery_01.jpg');"></div>
-        <div class="carousel-item" style="background-image: url('images/gallery_02.jpg');"></div>
-        <div class="carousel-item" style="background-image: url('images/gallery_04.jpg');"></div>
-        <div class="carousel-item" style="background-image: url('images/Slider_2.jpg');"></div>
+<section id="home" class="hero">
+    <div class="slideshow-container">
+
+      <!-- Slide 1 -->
+      <div class="slide fade">
+        <img src="images/slide1.jpg" alt="Dental Care 1">
+        <div class="slide-content">
+          <h1>Quality Dental Care You Can Trust</h1>
+          <p>We provide professional, pain-free dental services for the whole family.</p>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book an Appointment
+          </button>
+        </div>
       </div>
 
-      <!-- Prev/Next controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-
-      <!-- Overlay content -->
-      <div class="hero-content text-center">
-        <h1>Quality Dental Care You Can Trust</h1>
-        <p>Professional, pain-free dental services for the whole family.</p>
-        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#bookingModal">
-          Book an Appointment
-        </button>
+      <!-- Slide 2 -->
+      <div class="slide fade">
+        <img src="images/slide2.jpg" alt="Dental Care 2">
+        <div class="slide-content">
+          <h1>Brighten Your Smile</h1>
+          <p>Experience advanced whitening treatments for a confident smile.</p>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book an Appointment
+          </button>
+        </div>
       </div>
+
+      <!-- Slide 3 -->
+      <div class="slide fade">
+        <img src="images/slide3.jpg" alt="Dental Care 3">
+        <div class="slide-content">
+          <h1>Comfortable and Gentle Care</h1>
+          <p>We make sure every visit is stress-free and relaxing.</p>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book an Appointment
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide fade">
+        <img src="images/slide4.jpg" alt="Dental Care 4">
+        <div class="slide-content">
+          <h1>Advanced Technology</h1>
+          <p>State-of-the-art equipment for effective treatments.</p>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book an Appointment
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide fade">
+        <img src="images/slide5.jpg" alt="Dental Care 5">
+        <div class="slide-content">
+          <h1>Trusted Family Dentistry</h1>
+          <p>Your family's dental health is our top priority.</p>
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">
+            Book an Appointment
+          </button>
+        </div>
+      </div>
+
+      <!-- Next/Prev Buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
     </div>
   </section>
 
