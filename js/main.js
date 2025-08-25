@@ -78,14 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     playFade();
   }
 
-  // When the slide is about to move, set next text
-  carouselEl.addEventListener('slide.bs.carousel', (e) => {
-    const nextItem = e.relatedTarget; // the next .carousel-item
-    applyTexts(nextItem);
-  });
-
-  // When the slide transition finishes, play fade animation
-  carouselEl.addEventListener('slid.bs.carousel', () => {
-    playFade();
-  });
+// Add fade-in only once when page loads
+// (Already handled by playFade() above, so no need for another event listener)
 });
