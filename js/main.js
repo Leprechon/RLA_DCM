@@ -41,7 +41,6 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 // Hero Carousel Autoplay with interval
 document.addEventListener('DOMContentLoaded', () => {
-  const heroContent = document.querySelector('.hero-content');
   const carouselEl = document.getElementById('heroCarousel');
   const heroTextBox = document.querySelector('.hero-text');
   const heroTitle = heroTextBox.querySelector('h1');
