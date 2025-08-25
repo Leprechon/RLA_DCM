@@ -85,12 +85,14 @@ body {
 /* Overlay content */
 .hero-content {
   position: absolute;
-  inset: 0;
-  z-index: 2; /* above overlay */
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  text-align: center;
+  top: 50%;             /* vertical center */
+  left: 50%;            /* horizontal center */
+  transform: translate(-50%, -50%); /* true centering */
+  z-index: 10;          /* always on top of images */
+  color: #fff;          /* white text */
+  text-align: center;   /* center align text */
+  width: 100%;          /* make sure it scales */
+  padding: 0 20px;      /* prevent text from touching edges on mobile */
 }
 
 .hero-text {
