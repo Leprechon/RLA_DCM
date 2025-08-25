@@ -41,6 +41,7 @@ document.getElementById('inquiryForm')?.addEventListener('submit', function(e){
 
 // Hero Carousel Autoplay with interval
 document.addEventListener('DOMContentLoaded', () => {
+  const heroContent = document.querySelector('.hero-content');
   const carouselEl = document.getElementById('heroCarousel');
   const heroTextBox = document.querySelector('.hero-text');
   const heroTitle = heroTextBox.querySelector('h1');
@@ -64,7 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Restart the fade animation for text only
-
+  const playFade = () => {
+    heroTextBox.classList.remove('fade-in');
+    // reflow to restart animation
+    void heroTextBox.offsetWidth;
+    heroTextBox.classList.add('fade-in');
+  };
 
   // Init text from the first active slide
   const firstActive = carouselEl.querySelector('.carousel-item.active') || carouselEl.querySelector('.carousel-item');
@@ -73,14 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     playFade();
   }
 
-  // When the slide is about to move, set next text
-  carouselEl.addEventListener('slide.bs.carousel', (e) => {
-    const nextItem = e.relatedTarget; // the next .carousel-item
-    applyTexts(nextItem);
-  });
-
-  // When the slide transition finishes, play fade animation
-  carouselEl.addEventListener('slid.bs.carousel', () => {
-    playFade();
-  });
+ // Add fade-in only once when page loads
+window.addEventListener('DOMContentLoaded', () => {
+  heroContent.classList.add('fade-in');
+});
 });

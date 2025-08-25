@@ -85,13 +85,14 @@ body {
 /* Overlay content */
 .hero-content {
   position: absolute;
-  inset: 0;
-  z-index: 2; /* above overlay */
-  display: grid;
-  place-items: center;
-  padding: 1rem;
+  top: 50%;   /* adjust vertical placement */
+  left: 50%;  /* adjust horizontal placement */
+  transform: translate(-50%, -50%); /* center */
+  z-index: 10;
+  color: #fff;
   text-align: center;
 }
+If you want it lower → increa
 
 .hero-text {
   color: #fff;
@@ -126,10 +127,13 @@ body {
 }
 
 /* Fade animation for hero text only */
-
-@keyframes fadeInUp{
-  0% { opacity: 0; transform: translateY(12px); }
-  100% { opacity: 1; transform: translateY(0); }
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 1.2s forwards;
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translate(-50%, -40%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 /* Make controls a bit more visible */
