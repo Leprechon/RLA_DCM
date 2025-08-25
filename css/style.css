@@ -85,14 +85,12 @@ body {
 /* Overlay content */
 .hero-content {
   position: absolute;
-  top: 50%;             /* vertical center */
-  left: 50%;            /* horizontal center */
-  transform: translate(-50%, -50%); /* true centering */
-  z-index: 10;          /* always on top of images */
-  color: #fff;          /* white text */
-  text-align: center;   /* center align text */
-  width: 100%;          /* make sure it scales */
-  padding: 0 20px;      /* prevent text from touching edges on mobile */
+  inset: 0;
+  z-index: 2; /* above overlay */
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  text-align: center;
 }
 
 .hero-text {
@@ -129,12 +127,11 @@ body {
 
 /* Fade animation for hero text only */
 .fade-in {
-  opacity: 0;
-  animation: fadeInUp 1.2s forwards;
+  animation: fadeInUp 1.2s ease forwards;
 }
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translate(-50%, -40%); }
-  100% { opacity: 1; transform: translate(-50%, -50%); }
+@keyframes fadeInUp{
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Make controls a bit more visible */
