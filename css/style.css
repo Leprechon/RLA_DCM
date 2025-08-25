@@ -85,14 +85,13 @@ body {
 /* Overlay content */
 .hero-content {
   position: absolute;
-  top: 50%;   /* adjust vertical placement */
-  left: 50%;  /* adjust horizontal placement */
-  transform: translate(-50%, -50%); /* center */
-  z-index: 10;
-  color: #fff;
+  inset: 0;
+  z-index: 2; /* above overlay */
+  display: grid;
+  place-items: center;
+  padding: 1rem;
   text-align: center;
 }
-If you want it lower → increa
 
 .hero-text {
   color: #fff;
