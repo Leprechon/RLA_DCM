@@ -64,12 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Restart the fade animation for text only
-  const playFade = () => {
-    heroTextBox.classList.remove('fade-in');
-    // reflow to restart animation
-    void heroTextBox.offsetWidth;
-    heroTextBox.classList.add('fade-in');
-  };
+
 
   // Init text from the first active slide
   const firstActive = carouselEl.querySelector('.carousel-item.active') || carouselEl.querySelector('.carousel-item');
