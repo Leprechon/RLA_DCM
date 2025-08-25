@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSubtitle = heroTextBox.querySelector('p');
 
   // Bootstrap carousel instance with relaxed timing + smooth fade
-  const slider = new bootstrap.Carousel(carouselEl, {
-    interval: 6000,   // slower autoplay (ms)
-    ride: 'carousel',
-    pause: 'hover',
-    touch: true,
-    wrap: true
-  });
+const slider = new bootstrap.Carousel(carouselEl, {
+  interval: 6000,
+  ride: 'carousel',
+  pause: 'hover',
+  touch: true,
+  wrap: true
+});
 
   // Update overlay text from data attributes on each slide
   const applyTexts = (item) => {
